@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["distill_eval*"]
+
+[project]
+name = "distill-and-eval"
+version = "0.1.0"
+description = "Teacher-student distillation demo with before/after evaluation on a public text dataset"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.26.0,<2.3",
+  "scikit-learn>=1.5.0,<1.7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3.0", "ruff==0.8.4"]
+
+[project.scripts]
+distill-run = "distill_eval.run:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

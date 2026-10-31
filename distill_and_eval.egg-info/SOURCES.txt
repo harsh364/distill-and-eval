@@ -1,0 +1,11 @@
+LICENSE
+README.md
+pyproject.toml
+distill_and_eval.egg-info/PKG-INFO
+distill_and_eval.egg-info/SOURCES.txt
+distill_and_eval.egg-info/dependency_links.txt
+distill_and_eval.egg-info/entry_points.txt
+distill_and_eval.egg-info/requires.txt
+distill_and_eval.egg-info/top_level.txt
+distill_eval/__init__.py
+distill_eval/run.py

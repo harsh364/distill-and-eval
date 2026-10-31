@@ -1,0 +1,36 @@
+# Distill and eval
+
+![CI](https://github.com/harsh364/distill-and-eval/actions/workflows/ci.yml/badge.svg)
+
+Train a **teacher** classifier on rich text features, then a **student** on compact features while matching the teacher's **probability scores** (logit distillation). Report **accuracy and macro-F1** before and after on a held-out split.
+
+Uses the **20 newsgroups** topic subset (built into scikit-learn) — no custom datasets required.
+
+## Run
+
+```bash
+cd distill-and-eval
+pip install -e ".[dev]"
+
+distill-run --categories sci.med sci.space rec.sport.baseball
+distill-run --synthetic --json-out results/metrics.json
+```
+
+See [docs/method.md](docs/method.md) for the teacher/student setup.
+
+Example output:
+
+```text
+teacher accuracy=0.XX macro_f1=0.XX
+student accuracy=0.XX macro_f1=0.XX  (dim 64 vs 5000)
+```
+
+## What you learn
+
+- Baseline **teacher** with TF‑IDF + linear model  
+- **Student** with TruncatedSVD features + regression to teacher probabilities  
+- Simple **eval harness** comparing both on the same test fold  
+
+## License
+
+MIT
